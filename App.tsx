@@ -33,6 +33,11 @@ import AxiosReactQueryErrorRetryWrapper from './screens/AxiosReactQueryErrorRetr
 import AsyncStorageDemo from './screens/AsyncStorageDemo';
 import BasicAuthDemo from './screens/BasicAuthDemo';
 import NativeModuleUI from './screens/NativeModuleUI';
+import Optimization from './screens/optimization';
+import OptimizedFlatList from './screens/OptimizedFlatList';
+import CrudScreen from './screens/CrudScreen';
+import ProfilerScreen from './screens/Profiler';
+import ErrorBoundaryDemoScreen from './screens/ErrorBoundaryDemoScreen';
 
 const App: React.FC = () => {
   return (
@@ -112,7 +117,22 @@ const App: React.FC = () => {
             {/* <Text style={styles.heading}>Basic Auth Demo</Text>
             <BasicAuthDemo /> */}
 
-            <NativeModuleUI />
+            {/* <NativeModuleUI /> */}
+
+            {/* <Text style={styles.heading}>Optimization Techniques</Text>
+            <Optimization /> */}
+
+            {/* <Text style={styles.heading}>Optimized FlatList Demo</Text>
+            <OptimizedFlatList /> */}
+
+            {/* <Text style={styles.heading}>CRUD Screen Demo</Text>
+            <CrudScreen /> */}
+
+            {/* <Text style={styles.heading}>Profiler Demo</Text>
+            <ProfilerScreen /> */}
+
+            <Text style={styles.heading}>Error Boundary Demo</Text>
+            <ErrorBoundaryDemoScreen />
 
           </ScrollView>
         </SafeAreaView>
