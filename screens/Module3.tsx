@@ -20,7 +20,7 @@ const Module3: React.FC = () => {
       <Text style={styles.counterText}>
         Count Value: {count}
       </Text>
-
+      <Text style={styles.counterText}>Hello</Text>
       <Button
         title="Increase Count"
         onPress={() => setCount(prev => prev + 1)}
@@ -35,13 +35,13 @@ const styles = StyleSheet.create({
     width: '100%',          // 🔥 IMPORTANT: no flex: 1
     paddingVertical: 40,
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: 'aqua',
     borderRadius: 12
   },
   title: {
     fontSize: 22,
     fontWeight: 'bold',
-    marginBottom: 20
+    marginBottom: 40
   },
   counterText: {
     fontSize: 18,

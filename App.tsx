@@ -50,12 +50,12 @@ const App: React.FC = () => {
             keyboardShouldPersistTaps="handled"
           >
             {/* <Text style={styles.heading}>Module 3</Text>
-            <Module3 />
+            <Module3 /> */}
 
-            <Text style={styles.heading}>Module 4</Text>
-            <Module4 />
+            <Text style={styles.heading}>Module 6</Text>
+            <RegistrationFormDemo />
 
-            <Text style={styles.heading}>Module 5</Text>
+           {/* <Text style={styles.heading}>Module 5</Text>
             <Module5 /> disable internal scroll */}
 
             {/* <Text style={styles.heading}>Module 6</Text>
@@ -131,8 +131,8 @@ const App: React.FC = () => {
             {/* <Text style={styles.heading}>Profiler Demo</Text>
             <ProfilerScreen /> */}
 
-            <Text style={styles.heading}>Error Boundary Demo</Text>
-            <ErrorBoundaryDemoScreen />
+            {/* <Text style={styles.heading}>Error Boundary Demo</Text>
+            <ErrorBoundaryDemoScreen /> */}
 
           </ScrollView>
         </SafeAreaView>

@@ -77,7 +77,7 @@ const Module4: React.FC = () => {
       <TextInput
         style={styles.input}
         placeholder="Enter something..."
-        placeholderTextColor="#999"
+        placeholderTextColor="#ce6969"
         value={input}
         onChangeText={setInput}
       />
@@ -112,8 +112,8 @@ const Module4: React.FC = () => {
       {/* Dynamic Card */}
       <Card
         title={`You typed: ${input}`}
-        containerStyle={{ backgroundColor: '#333' }}
-        textStyle={{ color: '#fff' }}
+        containerStyle={{ backgroundColor: '#d2eece' }}
+        textStyle={{ color: '#d72323' }}
       />
 
     </View>
@@ -130,9 +130,9 @@ const styles = StyleSheet.create({
 
   container: {
     width: '100%',            // 🔥 IMPORTANT: no flex: 1
-    backgroundColor: '#1e1e1e',
+    backgroundColor: '#dbacac',
     padding: 20,
-    borderRadius: 12,
+    borderRadius: 22,
   },
 
   headerTitle: {
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
 
   card: {
     padding: 16,
-    backgroundColor: '#2c2c2c',
+    backgroundColor: '#e7afaf',
     borderRadius: 10,
     marginBottom: 20,
   },
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
   },
 
   flexBoxTwo: {
-    flex: 2,
+    flex: 1,
     backgroundColor: '#ffca28',
   },
 
