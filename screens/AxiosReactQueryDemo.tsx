@@ -4,6 +4,10 @@ import { View, Text, StyleSheet, FlatList, Pressable, ActivityIndicator } from "
 import { useQuery, QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import axios from "axios";
 
+//Axios + React Query Demo - Fetching and displaying a list of users from an API with loading and error states. This screen demonstrates how to use React Query's useQuery hook to manage data fetching, caching, and state management in a clean and efficient way. It also shows how to handle loading and error states gracefully in the UI.
+// @tanstack - manage the server state (loading,error,caching,refetching)
+// flatList - display the list of users in a scrollable list
+
 // --- User type ---
 interface User {
   id: number;
@@ -20,9 +24,10 @@ const fetchUsers = async (): Promise<User[]> => {
 
 // --- Main screen ---
 const AxiosReactQueryDemo: React.FC = () => {
+  // instead of useState and useEffect we use useQuery to fetch data and manage loading and error states
   const { data, isLoading, error, refetch } = useQuery<User[], Error>({
     queryKey: ["users"],
-    queryFn: fetchUsers,
+    queryFn: fetchUsers, // useEffect(() => { fetchUsers() }, []) --- IGNORE ---
   });
 
   if (isLoading) {

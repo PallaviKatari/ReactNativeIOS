@@ -32,7 +32,7 @@ const CrudScreen = () => {
   useEffect(() => {
     fetchUsers();
   }, []);
-
+// Action Verbs - Create (POST), Read (GET), Update (PUT), Delete (DELETE)
   const addUser = async () => {
     if (!name || !email) return;
     await axios.post(API_URL, { name, email });
@@ -56,9 +56,9 @@ const CrudScreen = () => {
   };
 
   const startEdit = (user: User) => {
-    setEditingId(user.id!);
-    setName(user.name);
-    setEmail(user.email);
+    setEditingId(user.id!); // 1
+    setName(user.name); //John Doe
+    setEmail(user.email); //john@mailinator.com
   };
 
   return (

@@ -14,6 +14,9 @@ interface User {
 // --- Fetch function ---
 const fetchUsers = async (): Promise<User[]> => {
   // Simulate random error for demo
+  // Chances of error: 50%
+  // Based on the random outcome, either throw an error or return the user data
+  // Our demo - set the retry as 3 so automatically it will retry 3 times before showing the error message to the user
   if (Math.random() < 0.5) {
     throw new Error("Random API error occurred");
   }
@@ -28,7 +31,7 @@ const AxiosReactQueryErrorRetry: React.FC = () => {
     queryFn: fetchUsers,
     retry: 3, // Retry up to 3 times automatically on failure
     retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 5000), // Exponential backoff
-    staleTime: 1000 * 60, // 1 minute
+    staleTime: 1000 * 60, // 1 minute - data is fresh for 1 minute, won't refetch on mount during this time
   });
 
   if (isLoading) {

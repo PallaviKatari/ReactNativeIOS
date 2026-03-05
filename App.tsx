@@ -52,8 +52,8 @@ const App: React.FC = () => {
             {/* <Text style={styles.heading}>Module 3</Text>
             <Module3 /> */}
 
-            <Text style={styles.heading}>Module 6</Text>
-            <RegistrationFormDemo />
+            {/* <Text style={styles.heading}>Module 4</Text>
+            <Module4 /> */}
 
            {/* <Text style={styles.heading}>Module 5</Text>
             <Module5 /> disable internal scroll */}
@@ -83,9 +83,9 @@ const App: React.FC = () => {
             <ListExamples /> */}
 
             {/* <Text style={styles.heading}>List with Types</Text>
-            <ListWithTypes /> */}
+            <ListWithTypes /> 
 
-            {/* <Text style={styles.heading}>Activity Indicator Demo</Text>
+             <Text style={styles.heading}>Activity Indicator Demo</Text>
             <ActivityIndicatorDemo /> */}
 
             {/* <Text style={styles.heading}>Modal, Alert & Picker Demo</Text>
@@ -110,9 +110,9 @@ const App: React.FC = () => {
 
             {/* <Text style={styles.heading}>Axios + React Query Error Retry Demo</Text>
             <AxiosReactQueryErrorRetryWrapper /> */}
-
-            {/* <Text style={styles.heading}>AsyncStorage Demo</Text>
-            <AsyncStorageDemo /> */}
+ 
+             <Text style={styles.heading}>AsyncStorage Demo</Text>
+            <AsyncStorageDemo /> 
 
             {/* <Text style={styles.heading}>Basic Auth Demo</Text>
             <BasicAuthDemo /> */}

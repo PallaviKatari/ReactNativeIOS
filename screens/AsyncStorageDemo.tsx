@@ -2,13 +2,25 @@ import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Pressable, TextInput, ScrollView } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+//AsyncStorage is a simple, unencrypted, asynchronous, persistent, key-value storage system 
+//that is global to the app. It should be used instead of LocalStorage.
+
+//LocalStorage - getItem, setItem, removeItem, clear, getAllKeys
+
+//SessionStorage - similar to LocalStorage but data is cleared when the app is closed. 
+//Not commonly used in React Native as AsyncStorage serves a similar purpose with better performance and features.
+
+// Save,read,delete functions with error handling and typed keys for better maintainability and type safety.
+
 // --- Typed keys ---
+// Define a type for the keys we will use in AsyncStorage to ensure type safety and prevent typos.
+// type StorageKeys = "username" | "email" | "token" | "settings"; // Extend as needed - only one can be used at a time
 type StorageKeys = "username" | "email";
 
 // --- Helper functions ---
 const saveItem = async (key: StorageKeys, value: string) => {
   try {
-    await AsyncStorage.setItem(key, value);
+    await AsyncStorage.setItem(key, value); // save the value to AsyncStorage - StorageKeys is used to ensure only valid keys are used
   } catch (error) {
     console.error(`Error saving ${key}:`, error);
   }
@@ -16,7 +28,7 @@ const saveItem = async (key: StorageKeys, value: string) => {
 
 const readItem = async (key: StorageKeys): Promise<string> => {
   try {
-    const value = await AsyncStorage.getItem(key);
+    const value = await AsyncStorage.getItem(key); //read the value from AsyncStorage - StorageKeys is used to ensure only valid keys are used
     return value || "";
   } catch (error) {
     console.error(`Error reading ${key}:`, error);
@@ -26,7 +38,7 @@ const readItem = async (key: StorageKeys): Promise<string> => {
 
 const deleteItem = async (key: StorageKeys) => {
   try {
-    await AsyncStorage.removeItem(key);
+    await AsyncStorage.removeItem(key); //delete the value from AsyncStorage - StorageKeys is used to ensure only valid keys are used
   } catch (error) {
     console.error(`Error deleting ${key}:`, error);
   }

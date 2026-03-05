@@ -23,6 +23,7 @@ const BasicAuthDemo: React.FC = () => {
         },
       });
 
+      // status 200 - success, status 401 - unauthorized
       if (response.ok) {
         const data = await response.json();
         setResponseText(JSON.stringify(data, null, 2));
