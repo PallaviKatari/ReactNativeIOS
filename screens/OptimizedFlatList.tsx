@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import {
   View,
   Text,
@@ -12,79 +12,66 @@ import {
 /* =============================
    Types
 ============================= */
-
 interface ItemType {
   id: string;
   title: string;
 }
 
 /* =============================
-   Memoized Item Component
+   ListItem: Render Only Once
 ============================= */
-
 interface ListItemProps {
   item: ItemType;
-  selectedId: string | null;
   onPress: (id: string) => void;
 }
 
-const ListItem = React.memo(
-  ({ item, selectedId, onPress }: ListItemProps) => {
-    const isSelected = item.id === selectedId;
+const ListItem = React.memo(({ item, onPress }: ListItemProps) => {
+  console.log('Rendering item:', item.id);
 
-    console.log('Rendering item:', item.id);
+  // Local state to track selection
+  const [selected, setSelected] = useState(false);
 
-    return (
-      <TouchableOpacity
-        style={[
-          styles.itemContainer,
-          isSelected && styles.selectedItem,
-        ]}
-        onPress={() => onPress(item.id)}
-      >
-        <Text style={styles.itemText}>{item.title}</Text>
-      </TouchableOpacity>
-    );
-  }
-);
+  const handlePress = () => {
+    setSelected(true); // only this item updates itself
+    onPress(item.id);
+  };
+
+  return (
+    <TouchableOpacity
+      style={[styles.itemContainer, selected && styles.selectedItem]}
+      onPress={handlePress}
+    >
+      <Text style={styles.itemText}>{item.title}</Text>
+    </TouchableOpacity>
+  );
+});
 
 /* =============================
    Main Screen
 ============================= */
-
-const OptimizedFlatList: React.FC = () => {
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [counter, setCounter] = useState<number>(0);
+const RenderOnceFlatList: React.FC = () => {
+  const [counter, setCounter] = useState(0);
 
   /* ----------------------------
      Large Data (Memoized)
   ----------------------------- */
   const data = useMemo<ItemType[]>(() => {
-    return Array.from({ length: 500 }, (_, index) => ({
+    return Array.from({ length: 20 }, (_, index) => ({
       id: index.toString(),
       title: `Item ${index}`,
     }));
   }, []);
 
-  /* ----------------------------
-     Stable Select Handler
-  ----------------------------- */
-  const handleSelect = useCallback((id: string) => {
-    setSelectedId(id);
+  const handlePress = useCallback((id: string) => {
+    console.log('Item pressed:', id);
   }, []);
 
   /* ----------------------------
-     Optimized renderItem
+     FlatList renderItem
   ----------------------------- */
   const renderItem: ListRenderItem<ItemType> = useCallback(
-    ({ item }) => (
-      <ListItem
-        item={item}
-        selectedId={selectedId}
-        onPress={handleSelect}
-      />
-    ),
-    [selectedId, handleSelect]
+    ({ item }) => <ListItem item={item} onPress={handlePress} />,
+    [handlePress]
   );
 
   return (
@@ -93,9 +80,7 @@ const OptimizedFlatList: React.FC = () => {
 
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.headerText}>
-          Optimized FlatList Demo
-        </Text>
+        <Text style={styles.headerText}>Render Once FlatList Demo</Text>
 
         <TouchableOpacity
           style={styles.counterButton}
@@ -125,12 +110,11 @@ const OptimizedFlatList: React.FC = () => {
   );
 };
 
-export default OptimizedFlatList;
+export default RenderOnceFlatList;
 
 /* =============================
    Styles
 ============================= */
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

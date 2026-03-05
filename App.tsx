@@ -111,8 +111,8 @@ const App: React.FC = () => {
             {/* <Text style={styles.heading}>Axios + React Query Error Retry Demo</Text>
             <AxiosReactQueryErrorRetryWrapper /> */}
  
-             <Text style={styles.heading}>AsyncStorage Demo</Text>
-            <AsyncStorageDemo /> 
+             {/* <Text style={styles.heading}>AsyncStorage Demo</Text>
+            <AsyncStorageDemo />  */}
 
             {/* <Text style={styles.heading}>Basic Auth Demo</Text>
             <BasicAuthDemo /> */}
@@ -122,8 +122,8 @@ const App: React.FC = () => {
             {/* <Text style={styles.heading}>Optimization Techniques</Text>
             <Optimization /> */}
 
-            {/* <Text style={styles.heading}>Optimized FlatList Demo</Text>
-            <OptimizedFlatList /> */}
+            <Text style={styles.heading}>Optimized FlatList Demo</Text>
+            <OptimizedFlatList />
 
             {/* <Text style={styles.heading}>CRUD Screen Demo</Text>
             <CrudScreen /> */}

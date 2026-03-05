@@ -8,6 +8,20 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+// Optimization techniques in React Native: 
+// React.memo, useCallback, useMemo 
+// with simple demos for each to illustrate their usage and benefits in preventing unnecessary re-renders and optimizing performance.
+
+// React/ReactNative - state,props are passed - re-renders 
+// React.memo - memoizes a component and only re-renders if props change - prevents unnecessary re-renders of child components when parent re-renders but props remain the same.
+// useCallback - memoizes a function and only re-creates it if dependencies change - prevents unnecessary re-creation of functions on every render which can cause child components that depend on those functions to re-render.
+// useMemo - memoizes a value and only re-computes it if dependencies change - prevents expensive calculations from running on every render when the inputs haven't changed.
+
+//AuthContext
+//login,logout,user
+//usememo - user object is memoized and only changes when login/logout is called, preventing unnecessary re-renders of components that consume the user context when the auth state changes but the user object remains the same.
+//useCallback- login and logout functions are memoized and only re-created when the auth state changes, preventing unnecessary re-renders of components that consume the auth context when the auth state changes but the login/logout functions remain the same.
+
 /* ===============================
    1️⃣ React.memo Demo Component
 ================================= */
@@ -52,8 +66,8 @@ const Optimization: React.FC = () => {
     for (let i = 0; i < 15_000_000; i++) {
       total += i;
     }
-    return total + count;
-  }, [count]);
+    return total + otherCount;
+  }, [otherCount]);
 
   return (
     <SafeAreaView style={{ flex: 1 }}>

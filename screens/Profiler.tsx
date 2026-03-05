@@ -1,5 +1,6 @@
 import React, { Profiler, useState, useCallback } from 'react';
 import { View, Text, Button, StyleSheet, ScrollView } from 'react-native';
+// E-commerce app example to demonstrate React Profiler
 
 type ProfileLog = {
   id: string;
@@ -55,7 +56,7 @@ const ProfilerScreen: React.FC = () => {
             <Text style={styles.logText}>Component: {log.id}</Text>
             <Text style={styles.logText}>Phase: {log.phase}</Text>
             <Text style={styles.logText}>
-              Duration: {log.actualDuration.toFixed(2)} ms
+              Duration: {log.actualDuration.toFixed(5)} ms
             </Text>
           </View>
         ))}
